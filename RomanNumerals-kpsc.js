@@ -19,14 +19,22 @@ var RomanNumerals = function(roman) {
 				result += this.nominals[this.roman[i]];
 				break;
 			}
-			if (this.nominals[this.roman[i]] < this.nominals[this.roman[i + 1]]) {
+			if (this.isSubstractive(this.roman[i], this.roman[i + 1])) {
 				result -= this.nominals[this.roman[i]];
 			} else {
 				result += this.nominals[this.roman[i]];
 			}
 		};
 		return result;
-	}
+	};
+
+	this.isAdditive = function(char1, char2) {
+		return (this.nominals[char1] >= this.nominals[char2]);
+	};
+
+	this.isSubstractive = function(char1, char2) {
+		return !this.isAdditive(char1, char2);
+	};
 
 	return this;
 }
