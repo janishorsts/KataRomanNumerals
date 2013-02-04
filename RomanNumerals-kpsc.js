@@ -80,6 +80,8 @@ describe('RomanNumerals', function() {
 			roman.toArabian().should.equal(4);
 		});
 		it('should wrongly return 999 if roman IM', function() {
+			// common rules allow to substract I only from V and X
+			// 	for more info see http://en.wikipedia.org/wiki/Roman_numerals
 			roman = RomanNumerals('IM');
 			roman.toArabian().should.equal(999);
 		});
